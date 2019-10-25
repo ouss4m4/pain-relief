@@ -28,16 +28,10 @@ import {
   animations: [routeAnimations]
 })
 export class AppComponent implements OnInit {
-  envName = env.envName;
-  version = env.versions.app;
   year = new Date().getFullYear();
-  logo = require('../../assets/logo.png');
-  languages = ['en', 'de', 'sk', 'fr', 'es', 'pt-br', 'zh-cn', 'he'];
-  navigation = [
-    { link: 'about', label: 'app.menu.about' },
-    { link: 'feature-list', label: 'app.menu.features' },
-    { link: 'examples', label: 'app.menu.examples' }
-  ];
+
+  languages = ['en'];
+  navigation = [{ link: 'about', label: 'app.menu.about' }];
   navigationSideMenu = [
     ...this.navigation,
     { link: 'settings', label: 'app.menu.settings' }
