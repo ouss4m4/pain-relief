@@ -16,26 +16,16 @@ export const actionSettingsChangeAutoNightMode = createAction(
   props<{ autoNightMode: boolean }>()
 );
 
-export const actionSettingsChangeStickyHeader = createAction(
-  '[Settings] Change Sticky Header',
-  props<{ stickyHeader: boolean }>()
-);
-
-export const actionSettingsChangeAnimationsPage = createAction(
-  '[Settings] Change Animations Page',
-  props<{ pageAnimations: boolean }>()
-);
-
 export const actionSettingsChangeAnimationsPageDisabled = createAction(
   '[Settings] Change Animations Page Disabled',
   props<{ pageAnimationsDisabled: boolean }>()
 );
 
-export const actionSettingsChangeAnimationsElements = createAction(
+/* export const actionSettingsChangeAnimationsElements = createAction(
   '[Settings] Change Animations Elements',
   props<{ elementsAnimations: boolean }>()
-);
-export const actionSettingsChangeHour = createAction(
+); */
+/* export const actionSettingsChangeHour = createAction(
   '[Settings] Change Hours',
   props<{ hour: number }>()
-);
+); */

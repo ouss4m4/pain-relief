@@ -5,12 +5,9 @@ import { Observable } from 'rxjs';
 import { ROUTE_ANIMATIONS_ELEMENTS } from '../../../core/core.module';
 
 import {
-  actionSettingsChangeAnimationsElements,
-  actionSettingsChangeAnimationsPage,
   actionSettingsChangeAutoNightMode,
   actionSettingsChangeLanguage,
-  actionSettingsChangeTheme,
-  actionSettingsChangeStickyHeader
+  actionSettingsChangeTheme
 } from '../../../core/settings/settings.actions';
 import { SettingsState, State } from '../../../core/settings/settings.model';
 import { selectSettings } from '../../../core/settings/settings.selectors';
@@ -32,16 +29,7 @@ export class SettingsContainerComponent implements OnInit {
     { value: 'BLACK-THEME', label: 'dark' }
   ];
 
-  languages = [
-    { value: 'en', label: 'en' },
-    { value: 'de', label: 'de' },
-    { value: 'sk', label: 'sk' },
-    { value: 'fr', label: 'fr' },
-    { value: 'es', label: 'es' },
-    { value: 'pt-br', label: 'pt-br' },
-    { value: 'zh-cn', label: 'zh-cn' },
-    { value: 'he', label: 'he' }
-  ];
+  languages = [{ value: 'en', label: 'en' }];
 
   constructor(private store: Store<State>) {}
 
@@ -59,19 +47,5 @@ export class SettingsContainerComponent implements OnInit {
 
   onAutoNightModeToggle({ checked: autoNightMode }) {
     this.store.dispatch(actionSettingsChangeAutoNightMode({ autoNightMode }));
-  }
-
-  onStickyHeaderToggle({ checked: stickyHeader }) {
-    this.store.dispatch(actionSettingsChangeStickyHeader({ stickyHeader }));
-  }
-
-  onPageAnimationsToggle({ checked: pageAnimations }) {
-    this.store.dispatch(actionSettingsChangeAnimationsPage({ pageAnimations }));
-  }
-
-  onElementsAnimationsToggle({ checked: elementsAnimations }) {
-    this.store.dispatch(
-      actionSettingsChangeAnimationsElements({ elementsAnimations })
-    );
   }
 }

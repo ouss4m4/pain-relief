@@ -1,12 +1,8 @@
 import { SettingsState, NIGHT_MODE_THEME } from './settings.model';
 import {
-  actionSettingsChangeAnimationsElements,
-  actionSettingsChangeAnimationsPage,
   actionSettingsChangeAnimationsPageDisabled,
   actionSettingsChangeAutoNightMode,
-  actionSettingsChangeHour,
   actionSettingsChangeLanguage,
-  actionSettingsChangeStickyHeader,
   actionSettingsChangeTheme
 } from './settings.actions';
 import { Action, createReducer, on } from '@ngrx/store';
@@ -29,10 +25,6 @@ const reducer = createReducer(
     actionSettingsChangeLanguage,
     actionSettingsChangeTheme,
     actionSettingsChangeAutoNightMode,
-    actionSettingsChangeStickyHeader,
-    actionSettingsChangeAnimationsPage,
-    actionSettingsChangeAnimationsElements,
-    actionSettingsChangeHour,
     (state, action) => ({ ...state, ...action })
   ),
   on(

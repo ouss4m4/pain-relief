@@ -28,7 +28,6 @@ import {
   animations: [routeAnimations]
 })
 export class AppComponent implements OnInit {
-  isProd = env.production;
   envName = env.envName;
   version = env.versions.app;
   year = new Date().getFullYear();

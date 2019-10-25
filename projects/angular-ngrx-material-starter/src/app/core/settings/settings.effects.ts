@@ -20,14 +20,10 @@ import { AnimationsService } from '../animations/animations.service';
 import { TitleService } from '../title/title.service';
 
 import {
-  actionSettingsChangeAnimationsElements,
-  actionSettingsChangeAnimationsPage,
   actionSettingsChangeAnimationsPageDisabled,
   actionSettingsChangeAutoNightMode,
   actionSettingsChangeLanguage,
-  actionSettingsChangeTheme,
-  actionSettingsChangeStickyHeader,
-  actionSettingsChangeHour
+  actionSettingsChangeTheme
 } from './settings.actions';
 import {
   selectEffectiveTheme,
@@ -54,56 +50,18 @@ export class SettingsEffects {
     private translateService: TranslateService
   ) {}
 
-  changeHour = createEffect(() =>
-    interval(60_000).pipe(
-      mapTo(new Date().getHours()),
-      distinctUntilChanged(),
-      map(hour => actionSettingsChangeHour({ hour }))
-    )
-  );
-
   persistSettings = createEffect(
     () =>
       this.actions$.pipe(
         ofType(
-          actionSettingsChangeAnimationsElements,
-          actionSettingsChangeAnimationsPage,
           actionSettingsChangeAnimationsPageDisabled,
           actionSettingsChangeAutoNightMode,
           actionSettingsChangeLanguage,
-          actionSettingsChangeStickyHeader,
           actionSettingsChangeTheme
         ),
         withLatestFrom(this.store.pipe(select(selectSettingsState))),
         tap(([action, settings]) =>
           this.localStorageService.setItem(SETTINGS_KEY, settings)
-        )
-      ),
-    { dispatch: false }
-  );
-
-  updateRouteAnimationType = createEffect(
-    () =>
-      merge(
-        INIT,
-        this.actions$.pipe(
-          ofType(
-            actionSettingsChangeAnimationsElements,
-            actionSettingsChangeAnimationsPage
-          )
-        )
-      ).pipe(
-        withLatestFrom(
-          combineLatest([
-            this.store.pipe(select(selectPageAnimations)),
-            this.store.pipe(select(selectElementsAnimations))
-          ])
-        ),
-        tap(([action, [pageAnimations, elementsAnimations]]) =>
-          this.animationsService.updateRouteAnimationType(
-            pageAnimations,
-            elementsAnimations
-          )
         )
       ),
     { dispatch: false }
