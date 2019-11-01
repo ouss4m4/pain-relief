@@ -3,5 +3,6 @@ export const environment = {
   envName: 'DEV',
   production: false,
   test: false,
-  i18nPrefix: ''
+  i18nPrefix: '',
+  baseUrl: ''
 };

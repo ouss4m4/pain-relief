@@ -3,5 +3,6 @@ export const environment = {
   envName: 'PROD',
   production: true,
   test: false,
-  i18nPrefix: '/painless'
+  i18nPrefix: '/painless',
+  baseUrl: ''
 };
