@@ -16,22 +16,7 @@
     "format:write": "prettier projects/**/*.{ts,json,md,scss} --write",
     "format:test": "prettier projects/**/*.{ts,json,md,scss} --list-different",
     "release": "standard-version && git push --follow-tags origin master",
-    "analyze": "npm run build:prod -- --stats-json && webpack-bundle-analyzer ./dist/painless/stats-es2015.json",
-    "server": "node ./projects/server/server.js",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate && node .all-contributors-html.js",
-    "contributors:check": "all-contributors check"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "analyze": "npm run build:prod -- --stats-json && webpack-bundle-analyzer ./dist/painless/stats-es2015.json"
   },
   "private": true,
   "dependencies": {

@@ -31,10 +31,10 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
 
   languages = ['en'];
-  navigation = [{ link: 'about', label: 'app.menu.about' }];
+  navigation = [{ link: 'about', label: 'about' }];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'app.menu.settings' }
+    { link: 'settings', label: 'settings' }
   ];
 
   isAuthenticated$: Observable<boolean>;

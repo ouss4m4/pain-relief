@@ -33,62 +33,23 @@ import {
   faPowerOff,
   faCog,
   faPlayCircle,
-  faRocket,
-  faPlus,
-  faEdit,
-  faTrash,
-  faTimes,
-  faCaretUp,
-  faCaretDown,
-  faExclamationTriangle,
-  faFilter,
-  faTasks,
-  faCheck,
-  faSquare,
-  faLanguage,
+  faShoppingCart,
   faPaintBrush,
-  faLightbulb,
-  faWindowMaximize,
-  faStream,
-  faBook
+  faLanguage
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faGithub,
-  faMediumM,
-  faTwitter,
-  faInstagram,
-  faYoutube
-} from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 library.add(
   faBars,
   faUserCircle,
   faPowerOff,
   faCog,
-  faRocket,
-  faPlayCircle,
-  faGithub,
-  faMediumM,
-  faTwitter,
   faInstagram,
   faYoutube,
-  faPlus,
-  faEdit,
-  faTrash,
-  faTimes,
-  faCaretUp,
-  faCaretDown,
-  faExclamationTriangle,
-  faFilter,
-  faTasks,
-  faCheck,
-  faSquare,
-  faLanguage,
+  faPlayCircle,
+  faShoppingCart,
   faPaintBrush,
-  faLightbulb,
-  faWindowMaximize,
-  faStream,
-  faBook
+  faLanguage
 );
 
 import { BigInputComponent } from './big-input/big-input/big-input.component';
@@ -99,9 +60,7 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
   imports: [
     CommonModule,
     FormsModule,
-
     TranslateModule,
-
     MatButtonModule,
     MatToolbarModule,
     MatSelectModule,
@@ -131,9 +90,7 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-
     TranslateModule,
-
     MatButtonModule,
     MatMenuModule,
     MatTabsModule,
@@ -154,9 +111,7 @@ import { RtlSupportDirective } from './rtl-support/rtl-support.directive';
     MatSliderModule,
     MatDatepickerModule,
     MatNativeDateModule,
-
     FontAwesomeModule,
-
     BigInputComponent,
     BigInputActionComponent,
     RtlSupportDirective
