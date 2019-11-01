@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { environment as env } from '../../environments/environment';
-
 import {
   authLogin,
   authLogout,
@@ -31,10 +29,14 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
 
   languages = ['en'];
-  navigation = [{ link: 'about', label: 'about' }];
+  navigation = [
+    { link: 'home', label: 'Home' },
+    { link: 'products', label: 'Products' },
+    { link: 'about', label: 'About' },
+  ];
   navigationSideMenu = [
     ...this.navigation,
-    { link: 'settings', label: 'settings' }
+    { link: 'settings', label: 'Settings' }
   ];
 
   isAuthenticated$: Observable<boolean>;
