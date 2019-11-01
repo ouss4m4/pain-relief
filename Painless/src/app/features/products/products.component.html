@@ -14,7 +14,7 @@
                         <img [src]='product.node.featuredImage.originalSrc' width='180px' height='240px'/>
                     </mat-card-content>
                     <mat-card-actions>
-                        <button mat-button>Ok</button>
+                        <button mat-button [routerLink]="['/products', product.node.id]"  routerLinkActive="router-link-active" >Ok</button>
                     </mat-card-actions>
                 </mat-card>
 
