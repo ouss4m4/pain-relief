@@ -4,5 +4,5 @@ export const environment = {
   production: false,
   test: true,
   i18nPrefix: '',
-  baseUrl: ''
+  baseUrl: 'http://localhost:5000'
 };

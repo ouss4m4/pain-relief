@@ -4,5 +4,5 @@ export const environment = {
   production: true,
   test: false,
   i18nPrefix: '/painless',
-  baseUrl: ''
+  baseUrl: 'http://localhost:5000'
 };

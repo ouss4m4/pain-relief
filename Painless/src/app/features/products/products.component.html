@@ -3,5 +3,22 @@
         <div class="container">
             <h1> products Works</h1>
         </div>
+        <div class="products-list">
+            <div class="product-item" *ngFor="let product of productList$ | async">
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{product.node.title}}</mat-card-title>
+                        <mat-card-subtitle>{{product.node.description}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <img [src]='product.node.featuredImage.originalSrc' width='180px' height='240px'/>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>Ok</button>
+                    </mat-card-actions>
+                </mat-card>
+
+            </div>
+        </div>
     </div>
 </div>
