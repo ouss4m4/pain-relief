@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { ApiService } from '../../core/apiservice/api.service';
-import { ISingleProductInfo } from './products.models';
+import { IProductMinInfoForList } from './products.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsFacade {
-  private _productsList$: BehaviorSubject<ISingleProductInfo[]>;
+  private _productsList$: BehaviorSubject<IProductMinInfoForList[]>;
   constructor(private apiService: ApiService) {
-    this._productsList$ = new BehaviorSubject<ISingleProductInfo[]>([]);
+    this._productsList$ = new BehaviorSubject<IProductMinInfoForList[]>([]);
   }
-  public get productsList$(): Observable<ISingleProductInfo[]> {
+  public get productsList$(): Observable<IProductMinInfoForList[]> {
     return this._productsList$.asObservable();
   }
 
