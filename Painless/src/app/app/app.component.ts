@@ -14,10 +14,7 @@ import {
   selectSettingsLanguage,
   selectEffectiveTheme
 } from '../core/core.module';
-import {
-  actionSettingsChangeAnimationsPageDisabled,
-  actionSettingsChangeLanguage
-} from '../core/settings/settings.actions';
+import { actionSettingsChangeAnimationsPageDisabled, actionSettingsChangeLanguage } from '../core/settings/settings.actions';
 
 @Component({
   selector: 'app-root',
@@ -29,28 +26,23 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
 
   languages = ['en'];
-  navigation = [
-    { link: 'home', label: 'Home' },
-    { link: 'products', label: 'Products' },
-    { link: 'about', label: 'About' },
-  ];
-  navigationSideMenu = [
-    ...this.navigation,
-    { link: 'settings', label: 'Settings' }
-  ];
+  navigation = [{ link: 'home', label: 'Home' }, { link: 'products', label: 'Products' }, { link: 'about', label: 'About' }];
+  navigationSideMenu = [...this.navigation, { link: 'settings', label: 'Settings' }];
 
   isAuthenticated$: Observable<boolean>;
   stickyHeader$: Observable<boolean>;
   language$: Observable<string>;
   theme$: Observable<string>;
 
-  constructor(
-    private store: Store<AppState>,
-    private storageService: LocalStorageService
-  ) {}
+  constructor(private store: Store<AppState>, private storageService: LocalStorageService) {
+    this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
+    this.stickyHeader$ = this.store.pipe(select(selectSettingsStickyHeader));
+    this.language$ = this.store.pipe(select(selectSettingsLanguage));
+    this.theme$ = this.store.pipe(select(selectEffectiveTheme));
+  }
 
   private static isIEorEdgeOrSafari() {
-    return ['ie', 'edge', 'safari'].includes(browser().name);
+    return ['ie', 'edge', 'safari'].includes(browser().name as string);
   }
 
   ngOnInit(): void {
@@ -62,11 +54,6 @@ export class AppComponent implements OnInit {
         })
       );
     }
-
-    this.isAuthenticated$ = this.store.pipe(select(selectIsAuthenticated));
-    this.stickyHeader$ = this.store.pipe(select(selectSettingsStickyHeader));
-    this.language$ = this.store.pipe(select(selectSettingsLanguage));
-    this.theme$ = this.store.pipe(select(selectEffectiveTheme));
   }
 
   onLoginClick() {

@@ -8,7 +8,7 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 })
 export class BigInputComponent {
   @Input()
-  placeholder: string;
+  placeholder = '';
 
   @Input()
   value = '';

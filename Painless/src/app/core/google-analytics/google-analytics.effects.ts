@@ -10,8 +10,8 @@ export class GoogleAnalyticsEffects {
   pageView = createEffect(
     () => () =>
       this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd),
-        tap((event: NavigationEnd) => {
+        filter(event => event instanceof NavigationEnd ),
+        tap((event: any) => {
           (<any>window).ga('set', 'page', event.urlAfterRedirects);
           (<any>window).ga('send', 'pageview');
         })

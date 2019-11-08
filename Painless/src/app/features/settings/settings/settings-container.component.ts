@@ -31,10 +31,12 @@ export class SettingsContainerComponent implements OnInit {
 
   languages = [{ value: 'en', label: 'en' }];
 
-  constructor(private store: Store<State>) {}
+  constructor(private store: Store<State>) {
+    this.settings$ = this.store.pipe(select(selectSettings));
+  }
 
   ngOnInit() {
-    this.settings$ = this.store.pipe(select(selectSettings));
+    
   }
 
   onLanguageSelect({ value: language }) {
