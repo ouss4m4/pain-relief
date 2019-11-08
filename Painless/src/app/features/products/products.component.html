@@ -1,23 +1,35 @@
 <div class="background">
-    <div class="gradient">
-        <div class="container">
-            <h1> products Works</h1>
-        </div>
+    <div class="container">
         <div class="products-list">
-            <div class="product-item" *ngFor="let product of productList$ | async">
-                <mat-card>
-                    <mat-card-header>
-                        <mat-card-title>{{product.node.title}}</mat-card-title>
-                        <mat-card-subtitle>{{product.node.description}}</mat-card-subtitle>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <img [src]='product.node.featuredImage.originalSrc' width='180px' height='240px'/>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-button [routerLink]="['/products', product.node.id]"  routerLinkActive="router-link-active" >Ok</button>
-                    </mat-card-actions>
-                </mat-card>
-
+            <div class="row">
+                <div *ngFor="let product of productList$ | async" class="col-md-4 col-sm-6">
+                    <div class="margin-y">
+                        <div class="product-item ">
+                            <div class="product-body">
+                                <img [src]='product.node.featuredImage.originalSrc'>
+                                <div id="overlay">
+                                    <div class="overlay-action">
+                                        <span matTooltip="Add to cart">
+                                            <fa-icon icon="shopping-cart"></fa-icon>
+                                        </span>
+                                        <span matTooltip="See details">
+                                            <fa-icon icon="search"></fa-icon>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-header">
+                                <p class="title">{{product.node.title}}</p>
+                            </div>
+                            <div class="product-footer">
+                                <p>Price: 21 USD</p>
+                                <p>Shipping : Free shipping</p>
+                                <button color="primary" mat-raised-button [routerLink]="['/products', product.node.id]"
+                                    routerLinkActive="router-link-active">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

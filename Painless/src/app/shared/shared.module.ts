@@ -35,7 +35,8 @@ import {
   faPlayCircle,
   faShoppingCart,
   faPaintBrush,
-  faLanguage
+  faLanguage,
+  faSearch
 } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
@@ -49,7 +50,8 @@ library.add(
   faPlayCircle,
   faShoppingCart,
   faPaintBrush,
-  faLanguage
+  faLanguage,
+  faSearch
 );
 
 import { BigInputComponent } from './big-input/big-input/big-input.component';
