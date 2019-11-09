@@ -3,6 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsComponent } from './products.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { StoreModule } from '@ngrx/store';
+import { productsReducer } from './store/products.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductsEffects } from './store/products.effects';
 
 const routes: Routes = [
   {
@@ -16,7 +20,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), SharedModule],
+  imports: [
+    RouterModule.forChild(routes),
+    SharedModule,
+    StoreModule.forFeature('ProductsPage', productsReducer),
+    EffectsModule.forFeature([ProductsEffects])
+  ],
   exports: [],
   declarations: [ProductsComponent, ProductDetailsComponent]
 })

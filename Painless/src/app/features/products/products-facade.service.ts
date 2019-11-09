@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { ApiService } from '../../core/apiservice/api.service';
+import { Observable } from 'rxjs';
 import { IProductMinInfoForList } from './products.models';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../../store-typing/store.models';
+import { ProductsFetchListAction } from './store/products.actions';
+import { productsQuery } from './store/products.selectors';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsFacade {
-  private _productsList$: BehaviorSubject<IProductMinInfoForList[]>;
-  constructor(private apiService: ApiService) {
-    this._productsList$ = new BehaviorSubject<IProductMinInfoForList[]>([]);
-  }
-  public get productsList$(): Observable<IProductMinInfoForList[]> {
-    return this._productsList$.asObservable();
+  public productsList$: Observable<IProductMinInfoForList[]>;
+  constructor(private store: Store<IAppState>) {
+    this.productsList$ = this.store.select(productsQuery.queryProductsList);
   }
 
   public fetchProductsList() {
-    this.apiService.get('/products').subscribe((res: any) => {
-      this._productsList$.next(res);
-    });
+    this.store.dispatch(ProductsFetchListAction({ payload: '20' }));
   }
 }

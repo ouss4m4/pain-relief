@@ -1,0 +1,15 @@
+import { Injectable } from '@angular/core';
+import { ApiService } from '../apiservice/api.service';
+import { Observable } from 'rxjs';
+import { IProductMinInfoForList } from '../../features/products/products.models';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductsService {
+  constructor(private apiService: ApiService) {}
+
+  fetchProductsList(qts: string): Observable<IProductMinInfoForList[]> {
+    return this.apiService.get(`/products?qts=${qts}`);
+  }
+}
