@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from '../../../core/apiservice/api.service';
-import { Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IProductDetails } from '../products.models';
+import { IAppState } from '../../../store-typing/store.models';
+import { Store } from '@ngrx/store';
+import { ProductsFetchDetailsAction } from '../store/products.actions';
+import { productsQuery } from '../store/products.selectors';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductDetailsFacade {
-  private _productInfo$: Subject<IProductDetails>;
-  constructor(private apiService: ApiService) {
-    this._productInfo$ = new Subject<any>();
+  public productInfo$: Observable<IProductDetails>;
+  constructor(private store: Store<IAppState>) {
+    this.productInfo$ = this.store.select(productsQuery.queryProductDetails);
   }
 
   fetchProductDetails(id: string) {
-    return this.apiService.get(`/product?id=${id}`).subscribe((res: IProductDetails) => this._productInfo$.next(res));
-  }
-  public get productInfo$() {
-    return this._productInfo$.asObservable();
+    this.store.dispatch(ProductsFetchDetailsAction({ payload: id }));
   }
 }

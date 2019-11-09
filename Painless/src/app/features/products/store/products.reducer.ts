@@ -1,10 +1,35 @@
 import { createReducer, on, Action } from '@ngrx/store';
 import { IProductsPageState } from '../models/products-typing.model';
-import { ProductsListFetchedAction } from './products.actions';
+import {
+  ProductsListFetchedAction,
+  ProductsDetailsFetchedAction
+} from './products.actions';
 
 export const initialState: IProductsPageState = {
   collections: [],
-  productsList: []
+  productsList: [],
+  selectedProduct: {
+    description: '',
+    featuredImage: {
+      id: '',
+      originalSrc: ''
+    },
+    handle: '',
+    images: {
+      edges: []
+    },
+    options: [],
+    priceRange: {
+      minVariantPrice: { amount: '', currencyCode: '' },
+      maxVariantPrice: { amount: '', currencyCode: '' }
+    },
+    productType: '',
+    title: '',
+    totalVariants: '',
+    variants: {
+      edges: []
+    }
+  }
 };
 
 const reducer = createReducer(
@@ -12,6 +37,10 @@ const reducer = createReducer(
   on(ProductsListFetchedAction, (state, { payload }) => ({
     ...state,
     productsList: payload
+  })),
+  on(ProductsDetailsFetchedAction, (state, { payload }) => ({
+    ...state,
+    selectedProduct: payload
   }))
 );
 

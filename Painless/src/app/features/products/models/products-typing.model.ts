@@ -1,4 +1,4 @@
-import { IProductMinInfoForList } from '../products.models';
+import { IProductMinInfoForList, IProductDetails } from '../products.models';
 
 export interface ICollection {
   node: {
@@ -10,4 +10,5 @@ export interface ICollection {
 export interface IProductsPageState {
   collections: ICollection[];
   productsList: IProductMinInfoForList[];
+  selectedProduct: IProductDetails;
 }

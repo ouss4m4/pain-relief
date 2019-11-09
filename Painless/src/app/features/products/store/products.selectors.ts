@@ -2,15 +2,21 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { IAppState } from '../../../store-typing/store.models';
 import { IProductsPageState } from '../models/products-typing.model';
 
+const queryProducts = createFeatureSelector<IAppState, IProductsPageState>(
+  'ProductsPage'
+);
 
-const queryProducts = createFeatureSelector<IAppState, IProductsPageState>('ProductsPage')
+const queryProductsList = createSelector(
+  queryProducts,
+  state => state.productsList
+);
 
-const queryProductsList =  createSelector(
-    queryProducts,
-    state => state.productsList
-) 
- 
+const queryProductDetails = createSelector(
+  queryProducts,
+  state => state.selectedProduct
+);
 
 export const productsQuery = {
-    queryProductsList
-}
+  queryProductsList,
+  queryProductDetails
+};
