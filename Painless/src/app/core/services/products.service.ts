@@ -3,7 +3,8 @@ import { ApiService } from '../apiservice/api.service';
 import { Observable } from 'rxjs';
 import {
   IProductMinInfoForList,
-  IProductDetails
+  IProductDetails,
+  ICollection
 } from '../../features/products/products.models';
 
 @Injectable({
@@ -18,5 +19,9 @@ export class ProductsService {
 
   fetchProductDetails(id: string): Observable<IProductDetails> {
     return this.apiService.get(`/product?id=${id}`);
+  }
+
+  fetchProductCollections(qts: string): Observable<ICollection[]> {
+    return this.apiService.get(`/products/collections?qts=${qts}`);
   }
 }

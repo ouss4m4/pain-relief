@@ -7,7 +7,9 @@ import {
   ProductsFetchListAction,
   ProductsListFetchedAction,
   ProductsFetchDetailsAction,
-  ProductsDetailsFetchedAction
+  ProductsDetailsFetchedAction,
+  ProductsFetchCollectionsAction,
+  ProductsCollectionsFetchedAction
 } from './products.actions';
 
 @Injectable()
@@ -36,8 +38,23 @@ export class ProductsEffects {
         this.productsService
           .fetchProductDetails(payload)
           .pipe(
-            map(details => ProductsDetailsFetchedAction({ payload: details }),
-            catchError(() => EMPTY))
+            map(
+              details => ProductsDetailsFetchedAction({ payload: details }),
+              catchError(() => EMPTY)
+            )
+          )
+      )
+    )
+  );
+
+  loadCollections$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(ProductsFetchCollectionsAction),
+      mergeMap(({ payload }) =>
+        this.productsService
+          .fetchProductCollections(payload)
+          .pipe(
+            map(cols => ProductsCollectionsFetchedAction({ payload: cols }))
           )
       )
     )

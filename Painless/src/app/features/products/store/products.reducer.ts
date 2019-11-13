@@ -1,9 +1,11 @@
 import { createReducer, on, Action } from '@ngrx/store';
-import { IProductsPageState } from '../models/products-typing.model';
+
 import {
   ProductsListFetchedAction,
-  ProductsDetailsFetchedAction
+  ProductsDetailsFetchedAction,
+  ProductsCollectionsFetchedAction
 } from './products.actions';
+import { IProductsPageState } from '../products.models';
 
 export const initialState: IProductsPageState = {
   collections: [],
@@ -41,6 +43,10 @@ const reducer = createReducer(
   on(ProductsDetailsFetchedAction, (state, { payload }) => ({
     ...state,
     selectedProduct: payload
+  })),
+  on(ProductsCollectionsFetchedAction, (state, { payload }) => ({
+    ...state,
+    collections: payload
   }))
 );
 

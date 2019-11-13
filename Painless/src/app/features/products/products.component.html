@@ -2,7 +2,7 @@
     <div class="container">
         <div class="products-list">
             <div class="filter-container">
-                app-products-collections
+                <app-products-collections></app-products-collections>
             </div>
             <div class="row">
                 <div *ngFor="let product of productList$ | async" class="col-md-4 col-sm-6">
@@ -27,7 +27,7 @@
                             <div class="product-footer">
                                 <p>Price: 21 USD</p>
                                 <p>Shipping : Free shipping</p>
-                                <button color="primary" mat-raised-button [routerLink]="['/products', product.node.id]"
+                                <button color="primary" mat-button [routerLink]="['/products', product.node.id]"
                                     routerLinkActive="router-link-active">Details</button>
                             </div>
                         </div>

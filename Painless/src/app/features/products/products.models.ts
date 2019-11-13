@@ -52,3 +52,16 @@ export interface IProductDetails {
     }[];
   };
 }
+
+export interface ICollection {
+  node: {
+    id: string;
+    title: string;
+  };
+}
+
+export interface IProductsPageState {
+  collections: ICollection[];
+  productsList: IProductMinInfoForList[];
+  selectedProduct: IProductDetails;
+}

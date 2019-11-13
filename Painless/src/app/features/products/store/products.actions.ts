@@ -1,5 +1,9 @@
 import { createAction, props } from '@ngrx/store';
-import { IProductMinInfoForList, IProductDetails } from '../products.models';
+import {
+  IProductMinInfoForList,
+  IProductDetails,
+  ICollection
+} from '../products.models';
 
 export const ProductsFetchListAction = createAction(
   '[Products Page] Fetch Products List',
@@ -19,4 +23,14 @@ export const ProductsFetchDetailsAction = createAction(
 export const ProductsDetailsFetchedAction = createAction(
   '[Products Page] Product Details Fetched',
   props<{ payload: IProductDetails }>()
+);
+
+export const ProductsFetchCollectionsAction = createAction(
+  '[Products Page] Fetch Collections',
+  props<{ payload: string }>()
+);
+
+export const ProductsCollectionsFetchedAction = createAction(
+  '[Products Page] Collections Fetched',
+  props<{ payload: ICollection[] }>()
 );

@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { IAppState } from '../../../store-typing/store.models';
-import { IProductsPageState } from '../models/products-typing.model';
+import { IProductsPageState } from '../products.models';
+
 
 const queryProducts = createFeatureSelector<IAppState, IProductsPageState>(
   'ProductsPage'
