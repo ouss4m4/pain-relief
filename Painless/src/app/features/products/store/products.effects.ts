@@ -53,7 +53,7 @@ export class ProductsEffects {
       ofType(ProductsFetchCollectionsAction),
       mergeMap(({ payload }) =>
         this.productsService
-          .fetchProductCollections(payload)
+          .fetchCollections(payload)
           .pipe(
             map(cols => ProductsCollectionsFetchedAction({ payload: cols }))
           )

@@ -18,13 +18,13 @@ export class ProductsService {
   }
 
   fetchCollectionProducts(id: string): Observable<IProductMinInfoForList[]> {
-    return this.apiService.get(`/products/${id}`);
+    return this.apiService.get(`/collection?id=${id}`);
   }
   fetchProductDetails(id: string): Observable<IProductDetails> {
     return this.apiService.get(`/product?id=${id}`);
   }
 
-  fetchProductCollections(qts: string): Observable<ICollection[]> {
+  fetchCollections(qts: string): Observable<ICollection[]> {
     return this.apiService.get(`/products/collections?qts=${qts}`);
   }
 }
