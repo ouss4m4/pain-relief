@@ -1,3 +1,9 @@
-<div>
-    <p *ngFor="let col of collections$ | async">{{col.node.title}}</p>
+<div class="collection-wrap" >
+    <div class="collection">
+        <a  [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/products']" routerLinkActive="active">
+            All Products</a>
+    </div>
+    <div class="collection" *ngFor="let col of collections$ | async">
+        <a [routerLink]="['/products/collection',col.node.id]" routerLinkActive="active">{{col.node.title}}</a>
+    </div>
 </div>

@@ -17,6 +17,9 @@ export class ProductsService {
     return this.apiService.get(`/products?qts=${qts}`);
   }
 
+  fetchCollectionProducts(id: string): Observable<IProductMinInfoForList[]> {
+    return this.apiService.get(`/products/${id}`);
+  }
   fetchProductDetails(id: string): Observable<IProductDetails> {
     return this.apiService.get(`/product?id=${id}`);
   }

@@ -1,7 +1,8 @@
 import {
   ActionReducerMap,
   MetaReducer,
-  createFeatureSelector
+  createFeatureSelector,
+  createSelector
 } from '@ngrx/store';
 import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 
@@ -45,6 +46,10 @@ export const selectRouterState = createFeatureSelector<
   RouterReducerState<RouterStateUrl>
 >('router');
 
+export const queryRouterState = createSelector(
+  selectRouterState,
+  router => router.state
+)
 export interface AppState {
   auth: AuthState;
   settings: SettingsState;

@@ -34,3 +34,8 @@ export const ProductsCollectionsFetchedAction = createAction(
   '[Products Page] Collections Fetched',
   props<{ payload: ICollection[] }>()
 );
+
+export const ProductsFetchListByCollection = createAction(
+  '[Products Page] Fetch Products By Collection',
+  props<{ payload: string }>()
+);
