@@ -25,7 +25,13 @@
                                 <p class="title">{{product.node.title}}</p>
                             </div>
                             <div class="product-footer">
-                                <p>Price: 21 USD</p>
+                                <div class="price-range">
+                                    <p>Price Range:</p>
+                                    <p>{{product.node.priceRange.minVariantPrice.amount | currency: product.node.priceRange.minVariantPrice.currencyCode }}
+                                    </p> - <p>
+                                        {{product.node.priceRange.maxVariantPrice.amount | currency: product.node.priceRange.maxVariantPrice.currencyCode }}
+                                    </p>
+                                </div>
                                 <p>Shipping : Free shipping</p>
                                 <button color="primary" mat-button [routerLink]="['/products', product.node.id]"
                                     routerLinkActive="router-link-active">Details</button>

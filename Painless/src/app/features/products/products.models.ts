@@ -8,6 +8,16 @@ export interface IProductMinInfoForList {
       originalSrc: string;
       altText: string;
     };
+    priceRange: {
+      minVariantPrice: {
+        amount: string;
+        currencyCode: string;
+      };
+      maxVariantPrice: {
+        amount: string;
+        currencyCode: string;
+      };
+    };
   };
 }
 
@@ -44,12 +54,7 @@ export interface IProductDetails {
     originalSrc: string;
   };
   images: {
-    edges: {
-      node: {
-        originalSrc: string;
-        altText: string;
-      };
-    }[];
+    edges: IProductImage[];
   };
 }
 
@@ -64,4 +69,11 @@ export interface IProductsPageState {
   collections: ICollection[];
   productsList: IProductMinInfoForList[];
   selectedProduct: IProductDetails;
+}
+
+export interface IProductImage {
+  node: {
+    altText: string;
+    originalSrc: string;
+  };
 }

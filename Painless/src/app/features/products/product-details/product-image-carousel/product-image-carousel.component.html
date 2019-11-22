@@ -1,0 +1,5 @@
+<div class="carousel-container">
+    <div class="images-wraper">
+        <img id="single-image" *ngFor="let image of images$ | async" [src]="image.node.originalSrc" />
+    </div>
+</div>>

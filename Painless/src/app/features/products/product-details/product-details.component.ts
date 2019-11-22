@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductDetailsFacade } from './product-details-facade.service';
 import { Observable } from 'rxjs';
 import { IProductDetails } from '../products.models';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-details',
@@ -15,7 +16,9 @@ export class ProductDetailsComponent implements OnInit {
   public productInfo$: Observable<IProductDetails>;
   constructor(private route: ActivatedRoute, private detailsFacade: ProductDetailsFacade) {
     this.gid = this.route.snapshot.paramMap.get('id') || '';
-    this.productInfo$ = this.detailsFacade.productInfo$;
+    this.productInfo$ = this.detailsFacade.productInfo$.pipe(
+      tap(val => console.log('product info', val))
+    );
   }
 
   ngOnInit() {

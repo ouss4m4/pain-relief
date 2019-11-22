@@ -1,0 +1,28 @@
+.carousel-container {
+  display: flex;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.images-wraper {
+  display: flex;
+  max-height: 100%;
+  animation: goLeft ease-in-out 6s infinite;
+
+}
+
+@keyframes goLeft {
+
+  25% {
+    transform: translateX(-250px);
+  }
+  50% {
+    transform: translateX(-250px);
+  }
+  75% {
+    transform: translateX(-250px);
+  }
+}
+#single-image {
+  max-width: 100%;
+}

@@ -13,10 +13,8 @@ export class ProductsCollectionsComponent implements OnInit {
   public collections$: Observable<ICollection[]>;
   public itemsListReady$: Observable<boolean>;
   constructor(private collectionsFacade: CollectionsFacade) {
-    this.itemsListReady$ = this.collectionsFacade.itemsListReady$
-    this.collections$ = this.collectionsFacade.collections$.pipe(
-      tap(cols => console.log('collections a zouba', cols))
-    );
+    this.itemsListReady$ = this.collectionsFacade.itemsListReady$;
+    this.collections$ = this.collectionsFacade.collections$;
   }
 
   ngOnInit() {

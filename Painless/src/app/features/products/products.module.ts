@@ -8,6 +8,7 @@ import { productsReducer } from './store/products.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffects } from './store/products.effects';
 import { ProductsCollectionsComponent } from './product-collections/products-collections.component';
+import { ProductImagesCarouselComponent } from './product-details/product-image-carousel/product-image-carousel.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,8 @@ const routes: Routes = [
   declarations: [
     ProductsComponent,
     ProductDetailsComponent,
-    ProductsCollectionsComponent
+    ProductsCollectionsComponent,
+    ProductImagesCarouselComponent
   ]
 })
 export class ProductsModule {}
