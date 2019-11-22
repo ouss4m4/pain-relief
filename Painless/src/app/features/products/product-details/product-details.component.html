@@ -6,11 +6,20 @@
                 <mat-card-subtitle>{{product.description}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-                <div class="col-sm-6">
-                    <app-product-carousel></app-product-carousel>
-                </div>
-                <div class="col-sm-6">
-
+                <div class="row">
+                    <div class="col-sm-6">
+                        <app-product-carousel></app-product-carousel>
+                    </div>
+                    <div class="col-sm-6">
+                        <div *ngFor="let option of product.options">
+                            <div>
+                                <label>{{option.name}}</label>
+                                <div>
+                                    <button *ngFor="let val of option.values">{{val}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </mat-card-content>
             <mat-card-actions>
